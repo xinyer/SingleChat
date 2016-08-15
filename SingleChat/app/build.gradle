@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 23
@@ -19,8 +20,31 @@ android {
     }
 }
 
+def dbflow_version = "3.0.0-beta6"
+def butterknife_version = "8.0.1"
+def rxjava_version = "1.1.9"
+def rxandroid_version = "1.2.0"
+def storebox_version = "1.4.0"
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
+
+    compile "com.jakewharton:butterknife:${butterknife_version}"
+    apt "com.jakewharton:butterknife-compiler:${butterknife_version}"
+
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    // use kapt for kotlin apt
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+    // sql-cipher database encyrption (optional)
+    compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
+    // kotlin extensions
+    compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
+
+    compile "io.reactivex:rxjava:${rxjava_version}"
+    compile "io.reactivex:rxandroid:${rxandroid_version}"
+
+    compile "net.orange-box.storebox:storebox-lib:${storebox_version}"
 }
