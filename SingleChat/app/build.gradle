@@ -47,4 +47,8 @@ dependencies {
     compile "io.reactivex:rxandroid:${rxandroid_version}"
 
     compile "net.orange-box.storebox:storebox-lib:${storebox_version}"
+
+    apt 'com.google.dagger:dagger-compiler:2.5'
+    compile 'com.google.dagger:dagger:2.5'
+    provided 'javax.annotation:jsr250-api:1.0'
 }
