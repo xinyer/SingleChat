@@ -2,9 +2,7 @@ package com.wx.singlechat;
 
 import android.app.Application;
 
-import com.wx.singlechat.di.component.ApplicationComponent;
-import com.wx.singlechat.di.component.DaggerApplicationComponent;
-import com.wx.singlechat.di.module.ApplicationModule;
+import com.avos.avoscloud.AVOSCloud;
 
 public class AppApplication extends Application {
 
@@ -14,14 +12,18 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         initializeInjector();
+        init();
     }
 
+    private void init() {
+        AVOSCloud.initialize(this, "R36OkJjtuztK6wv4J91wOjQ5-gzGzoHsz", "pgGO8nT0gOt9uiopQO4hqaS4");
+        AVOSCloud.setDebugLogEnabled(true);
+    }
 
     private void initializeInjector() {
         applicationComponent = DaggerApplicationComponent.builder()
                 .applicationModule(new ApplicationModule(this))
                 .build();
-        applicationComponent.inject(this);
     }
 
     public ApplicationComponent getApplicationComponent() {

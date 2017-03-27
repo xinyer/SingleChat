@@ -43,12 +43,9 @@ dependencies {
     apt "com.jakewharton:butterknife-compiler:${butterknife_version}"
 
     apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    // use kapt for kotlin apt
     compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
     compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
-    // sql-cipher database encyrption (optional)
     compile "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${dbflow_version}"
-    // kotlin extensions
     compile "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${dbflow_version}"
 
     compile "io.reactivex:rxjava:${rxjava_version}"
@@ -59,4 +56,28 @@ dependencies {
     apt "com.google.dagger:dagger-compiler:${dagger_version}"
     compile "com.google.dagger:dagger:${dagger_version}"
     provided 'javax.annotation:jsr250-api:1.0'
+
+    compile ('com.android.support:support-v4:21.0.3')
+
+    // LeanCloud 基础包
+    compile ('cn.leancloud.android:avoscloud-sdk:v3.+')
+
+    // 推送与实时聊天需要的包
+    compile ('cn.leancloud.android:avoscloud-push:v3.+@aar'){transitive = true}
+
+    // LeanCloud 统计包
+    compile ('cn.leancloud.android:avoscloud-statistics:v3.+')
+
+    // LeanCloud 用户反馈包
+    compile ('cn.leancloud.android:avoscloud-feedback:v3.+@aar')
+
+    // avoscloud-sns：LeanCloud 第三方登录包
+    compile ('cn.leancloud.android:avoscloud-sns:v3.+@aar')
+    compile ('cn.leancloud.android:qq-sdk:1.6.1-leancloud')
+    // 目前新浪微博官方只提供 jar 包的集成方式
+    // 请手动下载新浪微博 SDK 的 jar 包，将其放在 libs 目录下进行集成
+
+    // LeanCloud 应用内搜索包
+    compile ('cn.leancloud.android:avoscloud-search:v3.+@aar')
+
 }
