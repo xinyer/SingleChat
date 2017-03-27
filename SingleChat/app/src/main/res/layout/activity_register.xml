@@ -20,21 +20,21 @@
         android:hint="@string/password"
         android:inputType="textPassword"/>
 
-    <Button
-        android:id="@+id/btn_login"
+    <EditText
+        android:id="@+id/et_password_again"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/et_password"
         android:layout_marginTop="20dp"
-        android:text="@string/login"/>
+        android:hint="@string/input_password_again"
+        android:inputType="textPassword"/>
 
-    <TextView
-        android:id="@+id/tv_register"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btn_login"
-        android:layout_marginTop="10dp"
-        android:text="@string/register_new_user"
-        android:textSize="16sp"/>
+        android:layout_below="@+id/et_password_again"
+        android:layout_marginTop="20dp"
+        android:text="@string/register"/>
 
 </RelativeLayout>

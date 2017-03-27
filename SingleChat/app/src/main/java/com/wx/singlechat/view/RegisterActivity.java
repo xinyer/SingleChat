@@ -1,18 +1,17 @@
 package com.wx.singlechat.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
 import com.wx.singlechat.R;
-import com.wx.singlechat.presenter.LoginPresenter;
+import com.wx.singlechat.presenter.RegisterPresenter;
 
 import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements LoginViewInterface {
+public class RegisterActivity extends BaseActivity {
 
     @BindView(R.id.et_username)
     EditText etUsername;
@@ -20,8 +19,11 @@ public class LoginActivity extends BaseActivity implements LoginViewInterface {
     @BindView(R.id.et_password)
     EditText etPassword;
 
+    @BindView(R.id.et_password_again)
+    EditText etPasswordAgain;
+
     @Inject
-    LoginPresenter presenter;
+    RegisterPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,31 +31,17 @@ public class LoginActivity extends BaseActivity implements LoginViewInterface {
         getActivityComponent().inject(this);
     }
 
-    @Override
-    public int getLayoutResId() {
-        return R.layout.activity_login;
-    }
-
-    @OnClick(R.id.btn_login)
-    public void login() {
+    @OnClick(R.id.btn_register)
+    public void register() {
         String username = etUsername.getText().toString();
         String password = etPassword.getText().toString();
-        presenter.login(username, password);
-    }
+        String passwordAgain = etPasswordAgain.getText().toString();
 
-    @OnClick(R.id.tv_register)
-    public void jumpToRegister() {
-        Intent intent = new Intent(this, RegisterActivity.class);
-        startActivity(intent);
+        presenter.register(username, password);
     }
 
     @Override
-    public void onLoginSuccess() {
-
-    }
-
-    @Override
-    public void onLoginFail() {
-
+    public int getLayoutResId() {
+        return R.layout.activity_register;
     }
 }

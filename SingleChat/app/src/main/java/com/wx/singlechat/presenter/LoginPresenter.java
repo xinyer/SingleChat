@@ -1,20 +1,25 @@
 package com.wx.singlechat.presenter;
 
-import com.tencent.TIMUser;
-import com.tencent.mm.sdk.modelmsg.SendAuth;
+import com.wx.singlechat.view.LoginViewInterface;
+
+import javax.inject.Inject;
+
 
 public class LoginPresenter {
 
-    public void sendWXReq() {
-        SendAuth.Req req = new SendAuth.Req();
-        req.scope = "";
-        req.state = "";
+    private static final String TAG = "LoginPresenter";
+
+    private LoginViewInterface viewInterface;
+
+    @Inject
+    public LoginPresenter() {
+
     }
 
-    public void login() {
-        TIMUser user = new TIMUser();
-        user.setAccountType("6902");
-        user.setAppIdAt3rd("");
-        user.setIdentifier("test001");
+    public void setViewInterface(LoginViewInterface viewInterface) {
+        this.viewInterface = viewInterface;
+    }
+
+    public void login(String identifier, String password) {
     }
 }
