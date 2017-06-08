@@ -18,6 +18,4 @@ package com.wx.singlechat.base;
 
 public interface BasePresenter {
 
-    void start();
-
 }

@@ -39,9 +39,4 @@ class RegisterPresenter implements RegisterContract.Presenter {
             }
         });
     }
-
-    @Override
-    public void start() {
-
-    }
 }
